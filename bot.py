@@ -4,7 +4,7 @@ import os
 intents = discord.Intents.default()
 intents.members = True
 
-TOKEN = os.environ.get('TOKEN')
+TOKEN = os.getenv('TOKEN')
 client = discord.Client(intents=intents)
 
 
