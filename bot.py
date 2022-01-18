@@ -11,10 +11,10 @@ client = discord.Client(intents=intents)
 @client.event
 async def on_ready():
     print(f'{client.user} has connected')
-    global guild, rules, hubris, kerfuffle, open_combat, plastic_ants
+    global guild, rules, warlock, kerfuffle, open_combat, plastic_ants
     guild = client.get_guild(928046831013879889)
     rules = client.get_channel(931952764572020736)
-    hubris = client.get_emoji(932764756903874562)
+    warlock = client.get_emoji(932764756903874562)
     kerfuffle = client.get_emoji(932752842916233257)
     open_combat = guild.get_role(932767230318477343)
     plastic_ants = guild.get_role(932766907986214922)
@@ -34,7 +34,7 @@ async def on_ready():
                     'server your real name (or what you want to go by)!\n'
                     '2. You\'re welcome to participate in whatever '
                     'category of bot you see fit! To indicate this, please'
-                    f' react with {hubris} if you want to get into open '
+                    f' react with {warlock} if you want to get into open '
                     f'combat (larger bots) and with {kerfuffle} if you '
                     'want to get into plastic ants (1lb). If you don\'t '
                     'want to receive notifications from the part(s) of the'
@@ -44,13 +44,13 @@ async def on_ready():
     global rule
     rule = await rules.send(embed=embed)
     await rule.add_reaction(kerfuffle)
-    await rule.add_reaction(hubris)
+    await rule.add_reaction(warlock)
 
 
 @client.event
 async def on_reaction_add(reaction, user):
     if user != client.user and reaction.message == rule:
-        if reaction.emoji == hubris:
+        if reaction.emoji == warlock:
             await user.add_roles(open_combat)
         elif reaction.emoji == kerfuffle:
             await user.add_roles(plastic_ants)
@@ -59,7 +59,7 @@ async def on_reaction_add(reaction, user):
 @client.event
 async def on_reaction_remove(reaction, user):
     if reaction.message == rule:
-        if reaction.emoji == hubris:
+        if reaction.emoji == warlock:
             await user.remove_roles(open_combat)
         elif reaction.emoji == kerfuffle:
             await user.remove_roles(plastic_ants)
