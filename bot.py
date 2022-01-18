@@ -11,13 +11,13 @@ client = discord.Client(intents=intents)
 @client.event
 async def on_ready():
     print(f'{client.user} has connected')
-    global guild, rules, warlock, kerfuffle, open_combat, plastic_ants
+    global guild, rules, warlock, kerfuffle, open_combat, antweights
     guild = client.get_guild(928046831013879889)
     rules = client.get_channel(931948457512538152)
     warlock = client.get_emoji(932764756903874562)
     kerfuffle = client.get_emoji(932752842916233257)
     open_combat = guild.get_role(932767230318477343)
-    plastic_ants = guild.get_role(932766907986214922)
+    antweights = guild.get_role(932766907986214922)
 
     embed = discord.Embed(color=0xe03a3e)
     embed.add_field(name='Rules', value='1. Treat everyone with respect. '
@@ -35,7 +35,7 @@ async def on_ready():
                     'welcome to participate in whatever category of bot you '
                     f'see fit! To indicate this, please react with {warlock} '
                     'if you want to get into open combat (larger bots) and '
-                    f'with {kerfuffle} if you want to get into plastic ants '
+                    f'with {kerfuffle} if you want to get into antweights '
                     '(1lb). If you don\'t want to receive notifications from '
                     'the part(s) of the club you\'re not involved in, please '
                     'change your notification settings for that channel ONLY '
@@ -52,7 +52,7 @@ async def on_reaction_add(reaction, user):
         if reaction.emoji == warlock:
             await user.add_roles(open_combat)
         elif reaction.emoji == kerfuffle:
-            await user.add_roles(plastic_ants)
+            await user.add_roles(antweights)
 
 
 @client.event
@@ -61,6 +61,6 @@ async def on_reaction_remove(reaction, user):
         if reaction.emoji == warlock:
             await user.remove_roles(open_combat)
         elif reaction.emoji == kerfuffle:
-            await user.remove_roles(plastic_ants)
+            await user.remove_roles(antweights)
 
 client.run(TOKEN)
