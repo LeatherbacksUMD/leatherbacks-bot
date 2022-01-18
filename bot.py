@@ -21,26 +21,25 @@ async def on_ready():
 
     embed = discord.Embed(color=0xe03a3e)
     embed.add_field(name='Rules', value='1. Treat everyone with respect. '
-                    'Absolutely no harassment, witch hunting, sexism, '
-                    'racism, or hate speech will be tolerated.\n2. No NSFW'
-                    ' or obscene content. This includes text, images, or '
-                    'links featuring nudity, sex, hard violence, or other '
-                    'graphically disturbing content.\n3. If you see '
-                    'something against the rules or something that makes '
-                    'you feel unsafe, let the officers know. We want this '
-                    'server to be a welcoming space!', inline=False)
-    embed.add_field(name='Recommendations', value='1. It would be helpful '
-                    'to everyone if you could make your nickname for this '
-                    'server your real name (or what you want to go by)!\n'
-                    '2. You\'re welcome to participate in whatever '
-                    'category of bot you see fit! To indicate this, please'
-                    f' react with {warlock} if you want to get into open '
-                    f'combat (larger bots) and with {kerfuffle} if you '
-                    'want to get into plastic ants (1lb). If you don\'t '
-                    'want to receive notifications from the part(s) of the'
-                    ' club you\'re not involved in, please change your '
-                    'notification settings for that channel ONLY and not '
-                    'the entire server.', inline=False)
+                    'Absolutely no harassment, witch hunting, sexism, racism, '
+                    'or hate speech will be tolerated.\n2. No NSFW or obscene '
+                    'content. This includes text, images, or links featuring '
+                    'nudity, sex, hard violence, or other graphically '
+                    'disturbing content.\n3. If you see something against the '
+                    'rules or something that makes you feel unsafe, let the '
+                    'officers know. We want this server to be a welcoming '
+                    'space!', inline=False)
+    embed.add_field(name='Recommendations', value='1. It would be helpful to '
+                    'everyone if you could make your nickname for this server '
+                    'your real name (or what you want to go by)!\n2. You\'re '
+                    'welcome to participate in whatever category of bot you '
+                    f'see fit! To indicate this, please react with {warlock} '
+                    'if you want to get into open combat (larger bots) and '
+                    f'with {kerfuffle} if you want to get into plastic ants '
+                    '(1lb). If you don\'t want to receive notifications from '
+                    'the part(s) of the club you\'re not involved in, please '
+                    'change your notification settings for that channel ONLY '
+                    'and not the entire server.', inline=False)
     global rule
     rule = await rules.send(embed=embed)
     await rule.add_reaction(kerfuffle)
