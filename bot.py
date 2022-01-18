@@ -13,7 +13,7 @@ async def on_ready():
     print(f'{client.user} has connected')
     global guild, rules, warlock, kerfuffle, open_combat, plastic_ants
     guild = client.get_guild(928046831013879889)
-    rules = client.get_channel(931952764572020736)
+    rules = client.get_channel(931948457512538152)
     warlock = client.get_emoji(932764756903874562)
     kerfuffle = client.get_emoji(932752842916233257)
     open_combat = guild.get_role(932767230318477343)
