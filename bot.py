@@ -73,6 +73,6 @@ async def on_raw_reaction_remove(payload):
 
 @client.event
 async def on_member_join(member):
-    member.add_roles(leatherback)
+    await member.add_roles(leatherback)
 
 client.run(TOKEN)
