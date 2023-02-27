@@ -74,5 +74,12 @@ async def on_raw_reaction_remove(payload):
 @client.event
 async def on_member_join(member):
     await member.add_roles(leatherback)
+    
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+    if 'tombstone' in message.content.lower():
+        await message.channel.send('L')
 
 client.run(TOKEN)
