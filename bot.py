@@ -77,9 +77,18 @@ async def on_member_join(member):
     
 @client.event
 async def on_message(message):
-    if message.author == client.user:
-        return
-    if 'tombstone' in message.content.lower():
-        await message.channel.send('L')
+  if message.author == client.user:
+    return
+
+  # if message.author.nick == 'Mitchell':
+  #   await message.add_reaction("<:leatherbacks_icon:932126975093538826>")
+
+  print(message)
+  print('\n\n')
+
+  c = message.content.lower()
+  if 'tombstone' in c:
+    await message.channel.send("<:leatherbacks_icon:932126975093538826>")
+
 
 client.run(TOKEN)
